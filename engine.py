@@ -19,4 +19,12 @@ class FeedForward(nn.Module):
         
         
         
+class FourierBlock(nn.Module):
+    def __init__(self,input):
+        super().__init__()
+        self.act = nn.ReLU(input)
         
+    def forward(self,x):
+        fourier = None
+        x = self.act(x)
+        return x 

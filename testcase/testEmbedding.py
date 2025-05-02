@@ -1,9 +1,6 @@
 import unittest
 import torch
 from embedding import Embedding ,PositionalEncoding
-import sys
-import os
-sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 class TestEmbedding(unittest.TestCase):
     def test_embedding_and_positional_encoding(self):

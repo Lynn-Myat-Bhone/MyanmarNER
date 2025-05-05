@@ -23,5 +23,5 @@ class PositionalEncoding(nn.Module):
         
     def forward(self,x):
         # x (batch_size,max_len, d_model)
-        x = x + self.pe[:,:x.size(1)] #BroadCast positional encoding
+        x = x + self.pe[:x.size(1)] #BroadCast positional encoding
         return x

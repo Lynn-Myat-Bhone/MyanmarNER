@@ -18,5 +18,3 @@ class TestEmbedding(unittest.TestCase):
         self.assertEqual(pos_encoded.shape,(batch_size,seq_len,embedding_dim))
         self.assertFalse(torch.equal(pos_encoded, embedded))
         
-if __name__=="__main__":
-    unittest.main()

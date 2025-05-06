@@ -7,7 +7,7 @@ sys.stdout = io.TextIOWrapper(sys.stdout.buffer, encoding='utf-8')
 
 word2idx = {}
 label2idx = {}
-class CustomDataset(Dataset):
+class CustomDataset(Dataset): 
     def __init__(self,filepath):
         self.sentences , self.ner_tags = self.load_data(filepath)
         
@@ -33,7 +33,7 @@ train_data = CustomDataset(filepath)
 sentences, ner_tags = train_data.sentences, train_data.ner_tags
 
 # Print first 3 samples
-for i in range(1):
-    print("Sentence:", train_data.sentences[i])
-    print("NER Tags:", train_data.ner_tags[i])
+for i in range(3):
+    print("Sentence:", sentences[i])
+    print("NER Tags:", ner_tags[i])
     print("-" * 10)

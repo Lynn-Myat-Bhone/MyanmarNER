@@ -1,6 +1,6 @@
 import unittest
 import torch
-from embedding import Embedding ,PositionalEncoding
+from Engine.embedding import Embedding ,PositionalEncoding
 
 class TestEmbedding(unittest.TestCase):
     def test_embedding_and_positional_encoding(self):

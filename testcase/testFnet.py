@@ -2,7 +2,7 @@ import torch
 from torch import nn
 from torch.nn import functional as F
 import unittest
-from fNet import FNet 
+from Engine.fNet import FNet 
 
 
 input_dim = 128

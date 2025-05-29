@@ -33,19 +33,19 @@ The Dataset files are available under the (https://github.com/ye-kyaw-thu/myNER/
         the International Conference on Cybernetics and Innovations (ICCI 2025), April 2-4, Pattaya Chonburi, Thailand pp.
         [🔗 github link] (https://github.com/ye-kyaw-thu/myNER.git)
 
-    - **Hsu Myat Mo et al.**  
+   - **Hsu Myat Mo et al.**  
         *CRF-Based Named Entity Recognition for Myanmar Language,*  
         in *Genetic and Evolutionary Computing (ICGEC 2016)*, J. S. Pan et al., Eds.,  
         Advances in Intelligent Systems and Computing, vol. 536. Cham: Springer, 2017.  
         [🔗 Springer Link](https://link.springer.com/chapter/10.1007/978-3-319-48490-7_24)
 
-    - **Hsu Myat Mo and Khin Mar Soe**  
+   - **Hsu Myat Mo and Khin Mar Soe**  
         *Named Entity Recognition for Myanmar Language,*  
         in *Proceedings of the 2022 International Conference on Communication and Computer Research (ICCR 2022)*,  
         Sookmyung Women’s University, Seoul, Korea, 2022.  
         [🔗 ResearchGate Link](https://www.researchgate.net/publication/379828999_Named_Entity_Recognition_for_Myanmar_Language)
 
-    - **Hsu Myat Mo and Khin Mar Soe**  
+   - **Hsu Myat Mo and Khin Mar Soe**  
         *Syllable-based Neural Named Entity Recognition for Myanmar Language.*  
         Last modified 2019.  
         [🔗 arXiv:1903.04739](https://arxiv.org/abs/1903.04739)

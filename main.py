@@ -5,6 +5,7 @@ import pandas as pd
 from tools import segmentation
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
 # Load checkpoint
 checkpoint = torch.load("model_savefile/TransformerEncoding_model_ver1.pt", map_location=device)
 

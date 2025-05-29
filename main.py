@@ -74,9 +74,8 @@ page = st.sidebar.radio("Go to", ["Myanmar NER", "Syllable Tokenization"])
 if page == "Myanmar NER":
     
     st.warning(
-        """Disclaimer: This NER tool is mainly for research use and may not be 100% accurate(not enough data for model). 
-        Myanmar language segmentation is still under development. Please make sure your input is properly spaced 
-        for better named entity recognition."""
+        """Disclaimer: This tool is for research purposes. The NER model may not be 100% accurate due to limited data and ongoing development of Myanmar language segmentation.
+        Please make sure your input is properly spaced for better named entity recognition."""
     )
 
     st.markdown("<h4 style='text-align: center;'>Myanmar Named Entity Recognition</h4>", unsafe_allow_html=True)
@@ -119,7 +118,7 @@ if page == "Myanmar NER":
         ### Developed by
         - LynnMyat Bhone: (https://github.com/Lynn-Myat-Bhone)
         - Thuta Nyan : (https://github.com/ThutaNyan788)
-        - Shin Thant PHyo : (https://github.com/NanGyeThote)
+        - Shin Thant Phyo : (https://github.com/NanGyeThote)
 
         """
     )

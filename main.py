@@ -1,7 +1,7 @@
 import streamlit as st
 import torch
 from models.model import TransformerNER
-
+import pandas as pd
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # Load checkpoint
 checkpoint = torch.load("model_savefile/TransformerEncoding_model_ver1.pt", map_location=device)
@@ -54,15 +54,21 @@ def format_ner_output(results):
     return " ".join(formatted)
 
 # --- Streamlit UI ---
-st.title("Myanmar Named Entity Recognition")
-st.markdown("Enter a **tokenized Burmese sentence** (space-separated):")
+select = pd.DataFrame()
+select['topics'] = ['Myanmar NER', 'syllable-tokenization']
+option = st.sidebar.selectbox(
+    '',select['topics'])
 
-user_input = st.text_input("Sentence:", "မောင်မောင် သည် ရန်ကုန် တွင် မွေးဖွားခဲ့သည်။")
+if(option == "Myanmar NER"):
+    st.markdown("<h4 style='text-align: center;'>Myanmar Named Entity Recognition</h4>", unsafe_allow_html=True)
+    st.write("\n")
+    user_input = st.text_input("Sentence", "မောင်မောင် သည် ရန်ကုန် တွင် မွေးဖွားခဲ့သည်")
+    if st.button("Let's Do NER"):
+        sentence = user_input.strip().split()
+        results = predict_single_sentence(model, sentence, vocab, ix_to_ner_tag)
 
-if st.button("Let's Do NER"):
-    sentence = user_input.strip().split()
-    results = predict_single_sentence(model, sentence, vocab, ix_to_ner_tag)
+        st.subheader("Named Entity Recognition Results:")
+        st.markdown(format_ner_output(results))
 
-    st.subheader("Named Entity Recognition Results:")
-    st.markdown(format_ner_output(results))
+    
 

@@ -1,5 +1,7 @@
-torch
+python
+torch==2.1.0+cpu
 torchvision
 numpy
 streamlit
 TorchCRF
+pandas

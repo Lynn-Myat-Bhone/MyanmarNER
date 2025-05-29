@@ -23,6 +23,8 @@ The Dataset files are available under the (https://github.com/ye-kyaw-thu/myNER/
 
    To run :Streamlit run main.py
 
+## Model save file
+    https://huggingface.co/LynnMyatBhone/MyanmarNER
 
 
 ## Previous Works on Myanmar Language NER

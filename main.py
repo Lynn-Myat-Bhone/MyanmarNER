@@ -2,6 +2,8 @@ import streamlit as st
 import torch
 from models.model import TransformerNER
 import pandas as pd
+from tools import segmentation
+
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 # Load checkpoint
 checkpoint = torch.load("model_savefile/TransformerEncoding_model_ver1.pt", map_location=device)
@@ -53,22 +55,90 @@ def format_ner_output(results):
             formatted.append(f"**{word}** (_{tag}_)")
     return " ".join(formatted)
 
-# --- Streamlit UI ---
-select = pd.DataFrame()
-select['topics'] = ['Myanmar NER', 'syllable-tokenization']
-option = st.sidebar.selectbox(
-    '',select['topics'])
 
-if(option == "Myanmar NER"):
+# --- Sidebar Navigation ---
+st.markdown(
+    """
+    <style>
+    section[data-testid="stSidebar"] div[data-testid="stRadio"] > div {
+        row-gap: 1.5rem; 
+    }
+    </style>
+    """,
+    unsafe_allow_html=True
+)
+st.sidebar.title("MyNER")
+page = st.sidebar.radio("Go to", ["Myanmar NER", "Syllable Tokenization"])
+
+# --- Main Content Based on Nav ---
+if page == "Myanmar NER":
+    
+    st.warning(
+        """Disclaimer: This NER tool is mainly for research use and may not be 100% accurate(not enough data for model). 
+        Myanmar language segmentation is still under development. Please make sure your input is properly spaced 
+        for better named entity recognition."""
+    )
+
     st.markdown("<h4 style='text-align: center;'>Myanmar Named Entity Recognition</h4>", unsafe_allow_html=True)
-    st.write("\n")
-    user_input = st.text_input("Sentence", "မောင်မောင် သည် ရန်ကုန် တွင် မွေးဖွားခဲ့သည်")
+    user_input = st.text_input("Enter a sentence:", "မောင်မောင် သည် ရန်ကုန် တွင် မွေးဖွားခဲ့သည်")   
     if st.button("Let's Do NER"):
         sentence = user_input.strip().split()
         results = predict_single_sentence(model, sentence, vocab, ix_to_ner_tag)
-
-        st.subheader("Named Entity Recognition Results:")
+        st.write("Named Entity Recognition Results:")
         st.markdown(format_ner_output(results))
-
     
+    st.markdown("""
+        ---
+        ### 📚 Previous Works on Myanmar Language NER
 
+        - **Language Understanding Lab**  
+        *Kaung Lwin Thant, Kwankamol Nongpong, Ye Kyaw Thu, Thura Aung, Khaing Hsu Wai, Thazin Myint Oo*
+        *myNER: Contextualized Burmese Named Entity Recognition with Bidirectional LSTM and fastText Embeddings via Joint Training with POS Tagging*,
+        the International Conference on Cybernetics and Innovations (ICCI 2025), April 2-4, Pattaya Chonburi, Thailand pp.
+        [🔗 github link] (https://github.com/ye-kyaw-thu/myNER.git)
+
+        - **Hsu Myat Mo et al.**  
+        *CRF-Based Named Entity Recognition for Myanmar Language,*  
+        in *Genetic and Evolutionary Computing (ICGEC 2016)*, J. S. Pan et al., Eds.,  
+        Advances in Intelligent Systems and Computing, vol. 536. Cham: Springer, 2017.  
+        [🔗 Springer Link](https://link.springer.com/chapter/10.1007/978-3-319-48490-7_24)
+
+        - **Hsu Myat Mo and Khin Mar Soe**  
+        *Named Entity Recognition for Myanmar Language,*  
+        in *Proceedings of the 2022 International Conference on Communication and Computer Research (ICCR 2022)*,  
+        Sookmyung Women’s University, Seoul, Korea, 2022.  
+        [🔗 ResearchGate Link](https://www.researchgate.net/publication/379828999_Named_Entity_Recognition_for_Myanmar_Language)
+
+        - **Hsu Myat Mo and Khin Mar Soe**  
+        *Syllable-based Neural Named Entity Recognition for Myanmar Language.*  
+        Last modified 2019.  
+        [🔗 arXiv:1903.04739](https://arxiv.org/abs/1903.04739)
+        """)
+    st.markdown("""
+        ---
+        ### Developed by
+        - LynnMyat Bhone: (https://github.com/Lynn-Myat-Bhone)
+        - Thuta Nyan : (https://github.com/ThutaNyan788)
+        - Shin Thant PHyo : (https://github.com/NanGyeThote)
+
+        """
+    )
+
+        
+    
+elif page == "Syllable Tokenization":
+    st.markdown("<h4 style='text-align: center;'>Myanmar Syllable Tokenization</h4>", unsafe_allow_html=True)
+    user_input = st.text_input("Enter a sentence:", "မောင်မောင် သည် ရန်ကုန် တွင် မွေးဖွားခဲ့သည်")
+    
+    if st.button('Submit'):
+        seg_char = segmentation.segment_characters(user_input)
+        res  = " ".join(seg_char)
+        st.write("Tokenized Syllables:", res)
+        
+    st.markdown("""
+        ---
+        ### Developed by
+        - Thihan Soe: (https://github.com/Yoinami)
+
+        """
+    )

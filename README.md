@@ -2,29 +2,28 @@
 
 **MyanmarNER** This tool is for research purposes. The NER model may not be 100% accurate due to limited data and ongoing development of Myanmar language segmentation.Please make sure your input is properly spaced for better named entity recognition..
 
---
 
 ## License
 
 Creative Commons Attribution-NonCommercial-Share Alike 4.0 International (CC BY-NC-SA 4.0) License  
 [Details Info of License](https://creativecommons.org/licenses/by-nc-sa/4.0/) 
 
---
+
 ## Datasets
 
-The Dataset files are available under the (https://github.com/ye-kyaw-thu/myNER/tree/main/7-tags/corpus_ver.1.0) folder.  
-Each file uses a **CoNLL-style format** with **three columns**: word, part-of-speech (POS), and named entity (NER) tag, separated by tabs.
+The Dataset files are available under the (https://github.com/ye-kyaw-thu/myNER/tree/main/7-tags/corpus_ver.1.0) folder.Each file uses a **CoNLL-style format** with **three columns**: word, part-of-speech (POS), and named entity (NER) tag, separated by tabs.
 
---
 
 ## Installation
 1. **Clone the repository:**
    ```bash
    git clone https://github.com/yourusername/MyanmarNER.git
 
+   pip install -r requirements.txt
+
    To run :Streamlit run main.py
 
---
+
 
 ## Previous Works on Myanmar Language NER
 
@@ -51,7 +50,7 @@ Each file uses a **CoNLL-style format** with **three columns**: word, part-of-sp
         Last modified 2019.  
         [🔗 arXiv:1903.04739](https://arxiv.org/abs/1903.04739)
 
---
+
 
 ## Developed by
 - LynnMyat Bhone: (https://github.com/Lynn-Myat-Bhone)

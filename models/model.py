@@ -18,14 +18,13 @@ class TransformerNER(nn.Module):
             nhead=6,
             dim_feedforward=1024,
             dropout=dropout,
-            # batch_first=True
+            batch_first=True
         )
         self.encoder = TransformerEncoder(encoder_layer, num_layers=num_layers)
 
         self.ner_classifier = nn.Linear(dim, num_ner_tags)
         self.pos_classifier = nn.Linear(dim, num_pos_tags)
-        # self.crf_ner = CRF(num_ner_tags, batch_first=True)
-        self.crf_ner = CRF(num_ner_tags)
+        self.crf_ner = CRF(num_ner_tags, batch_first=True)
         
 
     def forward(self, x, mask=None):

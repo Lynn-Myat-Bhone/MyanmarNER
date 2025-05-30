@@ -3,11 +3,14 @@ import torch
 from models.model import TransformerNER
 import pandas as pd
 from tools import segmentation
+from huggingface_hub import hf_hub_download
 
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 
 # Load checkpoint
-checkpoint = torch.load("model_savefile/TransformerEncoding_model_ver1.pt", map_location=device)
+# checkpoint = torch.load("model_savefile/TransformerEncoding_model_ver1.pt", map_location=device)
+checkpoint_path = hf_hub_download(repo_id="LynnMyatBhone/MyanmarNER", filename="TransformerEncoding_model_ver1.pt")
+checkpoint = torch.load(checkpoint_path, map_location=device)
 
 # Load mappings
 vocab = checkpoint["vocab"]

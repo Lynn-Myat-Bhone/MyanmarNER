@@ -21,7 +21,7 @@ The Dataset files are available under the (https://github.com/ye-kyaw-thu/myNER/
 
    pip install -r requirements.txt
 
-   To run :Streamlit run main.py
+   To run :streamlit run main.py
 
 ## Model save file
     https://huggingface.co/LynnMyatBhone/MyanmarNER

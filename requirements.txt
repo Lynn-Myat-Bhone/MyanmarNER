@@ -4,5 +4,4 @@ numpy
 streamlit
 TorchCRF==1.1.0
 pandas
-pytorch-crf
-transformers
+torchcrf

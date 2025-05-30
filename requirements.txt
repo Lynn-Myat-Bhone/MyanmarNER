@@ -2,6 +2,5 @@ torch
 torchvision
 numpy
 streamlit
-TorchCRF==1.1.0
 pandas
 torchcrf

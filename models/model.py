@@ -24,7 +24,9 @@ class TransformerNER(nn.Module):
 
         self.ner_classifier = nn.Linear(dim, num_ner_tags)
         self.pos_classifier = nn.Linear(dim, num_pos_tags)
-        self.crf_ner = CRF(num_ner_tags, batch_first=True)
+        # self.crf_ner = CRF(num_ner_tags, batch_first=True)
+        self.crf_ner = CRF(num_ner_tags)
+        
 
     def forward(self, x, mask=None):
         x = self.embedding(x)

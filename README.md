@@ -17,7 +17,7 @@ The Dataset files are available under the (https://github.com/ye-kyaw-thu/myNER/
 ## Installation
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/MyanmarNER.git
+   git clone https://github.com/Lynn-Myat-Bhone/MyanmarNER.git
 
    pip install -r requirements.txt
 
